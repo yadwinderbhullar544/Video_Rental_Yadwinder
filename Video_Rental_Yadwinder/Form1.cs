@@ -13,13 +13,13 @@ namespace Video_Rental_Yadwinder
 {
     public partial class Form1 : Form
     {
-        Bussisness bl = new Bussisness();
+        Bussisness bl = new Bussisness();//obejct of bussines class
         public Form1()
         {
             InitializeComponent();
         }
 
-        private void btnLogin_Click(object sender, EventArgs e)
+        private void btnLogin_Click(object sender, EventArgs e)//Login button functionality
         {
             DataTable dt = new DataTable();
             SqlParameter[] sp = new SqlParameter[2];
@@ -48,6 +48,11 @@ namespace Video_Rental_Yadwinder
         }
 
         private void txtPss_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
         {
 
         }

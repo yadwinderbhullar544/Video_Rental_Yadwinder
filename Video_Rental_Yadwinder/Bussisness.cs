@@ -8,11 +8,11 @@ using System.Threading.Tasks;
 
 namespace Video_Rental_Yadwinder
 {
-    public class Bussisness
+    public class Bussisness//this is bussiness class for writing the login
     {
         DALayer dLayer = new DALayer();
-
-        public DataTable executSP_DataTableWithParamter(string SPName, SqlParameter[] SP)
+        
+        public DataTable executSP_DataTableWithParamter(string SPName, SqlParameter[] SP)//datatable through store procedure
         {
             SqlCommand cmd = new SqlCommand(SPName, dLayer.DataConnection());
             SqlDataAdapter da = new SqlDataAdapter();
@@ -50,7 +50,7 @@ namespace Video_Rental_Yadwinder
 
         }
 
-        public DataTable executSP_DataTableWithoutParamter(string SPName)
+        public DataTable executSP_DataTableWithoutParamter(string SPName)// Here passing the store procedure name
         {
             SqlCommand cmd = new SqlCommand(SPName, dLayer.DataConnection());
             SqlDataAdapter da = new SqlDataAdapter();

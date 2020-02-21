@@ -22,7 +22,7 @@ namespace Video_Rental_Yadwinder
             GetRentals();
         }
 
-        private void GetCustomers()
+        private void GetCustomers()//Get customers method. here i call the customer list
         {
             DataTable dt = new DataTable();
             dt = bl.executSP_DataTableWithoutParamter("sp_GetCustomerList");
@@ -30,7 +30,7 @@ namespace Video_Rental_Yadwinder
 
         }
 
-        private void GetMovies()
+        private void GetMovies()//Get movies method. here i call the movie list
         {
             DataTable dt = new DataTable();
             dt = bl.executSP_DataTableWithoutParamter("sp_GetMovieList");
@@ -38,7 +38,7 @@ namespace Video_Rental_Yadwinder
 
         }
 
-        private void GetRentals()
+        private void GetRentals()//Get rental method. here i call the rental list
         {
             DataTable dt = new DataTable();
             dt = bl.executSP_DataTableWithoutParamter("sp_GetRentalList");
@@ -46,7 +46,7 @@ namespace Video_Rental_Yadwinder
 
         }
 
-        private void AddCustomerBtn_Click(object sender, EventArgs e)
+        private void AddCustomerBtn_Click(object sender, EventArgs e)//Add customer functionality
         {
             DataTable dt = new DataTable();
             SqlParameter[] sqls = new SqlParameter[4];
@@ -59,7 +59,7 @@ namespace Video_Rental_Yadwinder
             MessageBox.Show("Customer updated successfully");
         }
 
-        private void CustomerUpdateBtn_Click(object sender, EventArgs e)
+        private void CustomerUpdateBtn_Click(object sender, EventArgs e)//update customer functionality
         {
             DataTable dt = new DataTable();
             SqlParameter[] sqls = new SqlParameter[5];
@@ -77,7 +77,7 @@ namespace Video_Rental_Yadwinder
             MessageBox.Show("Customer updated successfully");
         }
 
-        private void CustomerDeleteBtn_Click(object sender, EventArgs e)
+        private void CustomerDeleteBtn_Click(object sender, EventArgs e)//Delete customer functionality
         {
             DataTable dt = new DataTable();
             SqlParameter[] sqls = new SqlParameter[1];
@@ -87,7 +87,7 @@ namespace Video_Rental_Yadwinder
             MessageBox.Show("Customer deleted successfully");
         }
 
-        private void MovieAddBtn_Click(object sender, EventArgs e)
+        private void MovieAddBtn_Click(object sender, EventArgs e)//Add movie functionality
         {
             DataTable dt = new DataTable();
             SqlParameter[] sqls = new SqlParameter[4];
@@ -100,7 +100,7 @@ namespace Video_Rental_Yadwinder
             MessageBox.Show("Movie saved successfully");
         }
 
-        private void MovieDeleteBtn_Click(object sender, EventArgs e)
+        private void MovieDeleteBtn_Click(object sender, EventArgs e)//Delete movie functionality
         {
             DataTable dt = new DataTable();
             SqlParameter[] sqls = new SqlParameter[1];
@@ -110,7 +110,7 @@ namespace Video_Rental_Yadwinder
             MessageBox.Show("Movie deleted successfully");
         }
 
-        private void MovieUpdateBtn_Click(object sender, EventArgs e)
+        private void MovieUpdateBtn_Click(object sender, EventArgs e)//Update movie functionality
         {
             DataTable dt = new DataTable();
             SqlParameter[] sqls = new SqlParameter[5];
@@ -124,7 +124,7 @@ namespace Video_Rental_Yadwinder
             MessageBox.Show("Movie updated successfully");
         }
 
-        private void MovieReturnBtn_Click(object sender, EventArgs e)
+        private void MovieReturnBtn_Click(object sender, EventArgs e)//Return movie functionality
         {
             DataTable dt = new DataTable();
             SqlParameter[] sqls = new SqlParameter[1];
@@ -134,7 +134,7 @@ namespace Video_Rental_Yadwinder
             MessageBox.Show("Movie returned by the customer");
         }
 
-        private void MovieIssueBtn_Click(object sender, EventArgs e)
+        private void MovieIssueBtn_Click(object sender, EventArgs e)//Issue movie functionality
         {
             DataTable dt = new DataTable();
             SqlParameter[] sqls = new SqlParameter[2];
@@ -145,7 +145,7 @@ namespace Video_Rental_Yadwinder
             MessageBox.Show("Movie rented to the customer");
         }
 
-        private void dataGridViewCustomers_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void dataGridViewCustomers_CellContentClick(object sender, DataGridViewCellEventArgs e)//gridview of customers functionality
         {
             if (e.RowIndex >= 0)
             {
@@ -160,7 +160,7 @@ namespace Video_Rental_Yadwinder
             }
         }
 
-        private void dataGridViewMovies_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void dataGridViewMovies_CellContentClick(object sender, DataGridViewCellEventArgs e)//gridview of movies functionality
         {
             if (e.RowIndex >= 0)
             {
@@ -175,7 +175,7 @@ namespace Video_Rental_Yadwinder
             }
         }
 
-        private void dataGridViewRental_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void dataGridViewRental_CellContentClick(object sender, DataGridViewCellEventArgs e)//gridview of rental functionality
         {
             if (e.RowIndex >= 0)
             {
@@ -191,7 +191,7 @@ namespace Video_Rental_Yadwinder
             }
         }
 
-        private void allRentedRadioBtn_CheckedChanged(object sender, EventArgs e)
+        private void allRentedRadioBtn_CheckedChanged(object sender, EventArgs e)//rented radio button functionality
         {
             DataTable dt = new DataTable();
             SqlParameter[] sp = new SqlParameter[1];
@@ -200,13 +200,23 @@ namespace Video_Rental_Yadwinder
             dataGridViewRental.DataSource = dt;
         }
 
-        private void outRentedRadioBtn_CheckedChanged(object sender, EventArgs e)
+        private void outRentedRadioBtn_CheckedChanged(object sender, EventArgs e)//out rented radio button functionality
         {
             DataTable dt = new DataTable();
             SqlParameter[] sp = new SqlParameter[1];
             sp[0] = new SqlParameter("@rentalType", "O");
             dt = bl.executSP_DataTableWithParamter("GetMoviesRentalList", sp);
             dataGridViewRental.DataSource = dt;
+        }
+
+        private void rentalCostTxt_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label11_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
